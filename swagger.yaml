@@ -27,72 +27,14 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              required:
-                - id
-                - name
-                - village
-                - address
-                - mandal
-                - district
-                - password
-              properties:
-                id:
-                  type: string
-                  example: 2020bcs0066
-                name:
-                  type: string
-                  example: Tharun Vemula
-                address:
-                  type: string
-                  example: '6301930763'
-                village:
-                  type: string
-                  example: '2023-02-11T18:30:00.000Z'
-                mandal:
-                  type: string
-                  example: '2023-02-11T18:30:00.000Z'
-                district:
-                  type: boolean
-                  example: false
-                password:
-                  type: boolean
-                  example: false
-                phoneNumber:
-                  type: string
-                  example: Pala
+              $ref: '#/components/schemas/School'
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                id:
-                  type: string
-                  example: 2020bcs0066
-                name:
-                  type: string
-                  example: Tharun Vemula
-                address:
-                  type: string
-                  example: '6301930763'
-                village:
-                  type: string
-                  example: '2023-02-11T18:30:00.000Z'
-                mandal:
-                  type: string
-                  example: '2023-02-11T18:30:00.000Z'
-                district:
-                  type: boolean
-                  example: false
-                password:
-                  type: boolean
-                  example: false
-                phoneNumber:
-                  type: string
-                  example: Pala
+                $ref : '#/components/schemas/School'
 
   /createStudent:
     post:
@@ -265,7 +207,7 @@ paths:
               properties:
                 id:
                   type: string
-                  example: 2020bcs0066
+                  example: 6301930763
                 password:
                   type: string
                   example: '123456'
@@ -276,6 +218,47 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/School'
+  /people:
+    post:
+      tags:
+        - School
+      summary: Gets Students and Teacher of a school
+      description: Returns a payload containing students and teachers of school 
+      requestBody:
+        description: Returns a payload containing students and teachers of school 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: 6301930763
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+  /download/:id:
+    get:
+      tags:
+        - admin
+      summary: Downloads a school's data
+      description: Downloads a school's data zip file with photos and zip file
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            
  
 components:
   schemas:
@@ -336,57 +319,54 @@ components:
           example: Tharun Vemula
         employeeId:
           type: string
-          example: X
+          example: 4564789
         designation:
           type: string
-          example: A
+          example: Teacher
         phoneNumber:
           type: string
-          example: dad
+          example: 6301930763
         school:
           type: string
-          example: 6301930763
+          example: SchoolId
         address:
           type: string
-          example: hyderabad
-        aadhaar:
-          type: string
-          example: 914956003355
+          example: Hyderabad
     School:
       type: object
       required:
-        - id
         - name
         - village
         - phoneNumber
         - mandal
         - district
+        - phoneNumber
         - state
         - password
         - address
       properties:
-        id:
-          type: string
-          example: 2020bcs0066
         name:
           type: string
-          example: Tharun Vemula
+          example: Ravindra Bharathi School
         address:
           type: string
-          example: X
+          example: Boduppal, Hyderabad.
         village:
           type: string
-          example: A
+          example: Boduppal
         mandal:
           type: string
-          example: dad
+          example: Ghatkesar
         district:
+          type: string
+          example: Medchal
+        phoneNumber:
           type: string
           example: 6301930763
         state:
           type: string
-          example: hyderabad
+          example: Telangana
         password:
           type: string
-          example: 914956003355
+          example: 123456
     
