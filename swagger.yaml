@@ -49,68 +49,40 @@ paths:
             schema:
               type: object
               properties:
-                id:
-                  type: string
-                  example: <ObjectID>
                 name:
-                  type: number
-                  example: 0
+                  type: string
+                  example: Tharun
                 fatherName:
                   type: string
-                  example: Security 1
+                  example: Raghu
                 class:
                   type: string
-                  example: Security 1
+                  example: X
                 section:
                   type: string
-                  example: Security 1
-                school:
+                  example: 
+                schoolId:
                   type: string
-                  example: Security 1
+                  example: 6301930763
+                schoolName:
+                  type: string
+                  example: RBS
                 address:
                   type: string
-                  example: Security 1
+                  example: Boduppal
                 aadhaar:
                   type: string
-                  example: Security 1
+                  example: 91746788951
                 photoUrl:
                   type: string
-                  example: Security 1
+                  example: base64
       responses:
         '200':
           description: successful operation
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                id:
-                  type: string
-                  example: ObjectId
-                name:
-                  type: number
-                  example: 0
-                fatherName:
-                  type: string
-                  example: Security 1
-                class:
-                  type: string
-                  example: Security 1
-                section:
-                  type: string
-                  example: Security 1
-                school:
-                  type: string
-                  example: Security 1
-                address:
-                  type: string
-                  example: Security 1
-                aadhaar:
-                  type: string
-                  example: Security 1
-                photoUrl:
-                  type: string
-                  example: Security 1
+                $ref : '#/components/schemas/Student'
         '400':
           description: Invalid status value
 
@@ -127,68 +99,40 @@ paths:
             schema:
               type: object
               properties:
-                id:
-                  type: string
-                  example: <ObjectID>
                 name:
-                  type: number
-                  example: 0
+                  type: string
+                  example: Tharun
                 employeeId:
                   type: string
-                  example: Security 1
+                  example: 1234567
                 designation:
                   type: string
-                  example: Security 1
+                  example: Teacher
                 phoneNumber:
                   type: string
-                  example: Security 1
-                school:
+                  example: 6301930763
+                schoolId:
                   type: string
-                  example: Security 1
+                  example: 123564879
+                schoolName:
+                  type: string
+                  example: RBS
                 address:
                   type: string
-                  example: Security 1
+                  example: Boduppal
                 aadhaar:
                   type: string
-                  example: Security 1
+                  example: 9149560265
                 photoUrl:
                   type: string
-                  example: Security 1
+                  example: base64image
       responses:
         '200':
           description: successful operation
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                id:
-                  type: string
-                  example: ObjectId
-                name:
-                  type: number
-                  example: 0
-                employeeId:
-                  type: string
-                  example: Security 1
-                designation:
-                  type: string
-                  example: Security 1
-                phoneNumber:
-                  type: string
-                  example: Security 1
-                school:
-                  type: string
-                  example: Security 1
-                address:
-                  type: string
-                  example: Security 1
-                aadhaar:
-                  type: string
-                  example: Security 1
-                photoUrl:
-                  type: string
-                  example: Security 1
+                $ref : '#/components/schemas/Teacher'
         '400':
           description: Invalid status value
       
@@ -270,7 +214,8 @@ components:
         - class
         - section
         - fatherName
-        - school
+        - schoolId
+        - schoolName
         - address
         - aadhaar
       properties:
@@ -289,9 +234,12 @@ components:
         fatherName:
           type: string
           example: dad
-        school:
+        schoolId:
           type: string
           example: 6301930763
+        schoolName:
+          type: string
+          example: RBS
         address:
           type: string
           example: hyderabad
@@ -307,7 +255,8 @@ components:
         - employeeId
         - designation
         - phoneNumber
-        - school
+        - schoolId
+        - schoolName
         - address
         - aadhaar
       properties:
@@ -326,9 +275,12 @@ components:
         phoneNumber:
           type: string
           example: 6301930763
-        school:
+        schoolId:
           type: string
-          example: SchoolId
+          example: 1324986451
+        schoolName:
+          type: string
+          example : RBS
         address:
           type: string
           example: Hyderabad
